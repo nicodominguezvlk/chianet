@@ -1,5 +1,5 @@
 # chianet
-Repositorio de contenidos para la materia Ingeniería y Calidad de Software, Curso 4K4, Grupo 2 del año 2024. El archivo con documentación para el uso de este repositorio se encuentra en el archivo [/docs/reference.pdf].
+Repositorio de contenidos para la materia Ingeniería y Calidad de Software, Curso 4K4, Grupo 2 del año 2024. El archivo de gestión de configuración que contiene información para el uso de este repositorio se encuentra en [/gestion_de_configuracion.pdf](https://github.com/nicodominguezvlk/chianet/blob/main/gestion_de_configuracion.pdf).
 
 Integrantes:  
     Carnero, Alexis  	       					- Legajo: 80388  
@@ -10,6 +10,3 @@ Integrantes:
     Tarquinio, Ángel Valentín  					- Legajo: 82127  
     Valle, Delfina 							    - Legajo: 85731  
     Valle Ybañez, Matías   					    - Legajo: 70869  
-
-[//]: #
-[/docs/reference.pdf]: <https://github.com/nicodominguezvlk/chianet/tree/main/docs>
