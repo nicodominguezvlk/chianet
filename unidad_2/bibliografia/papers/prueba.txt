@@ -1,1 +1,0 @@
-Archivo de prueba porque Git no deja subir carpetas vacias.
