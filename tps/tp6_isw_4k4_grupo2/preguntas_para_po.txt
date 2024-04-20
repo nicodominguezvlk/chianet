@@ -1,0 +1,18 @@
+Pregunta 1:
+	¿Hay alguna paleta de colores a utilizar?
+Respuesta del Product Owner:
+		
+
+Pregunta 2:
+	Si no se nos va a corregir el código, ¿dónde se ve plasmado el uso de las reglas de estilos?
+Respuesta del Product Owner:
+
+
+Pregunta 3:
+	¿Hay alguna fuente (estilo de letra) de preferencia?	
+Respuesta del Product Owner:
+
+
+Pregunta 4:
+	¿Hay algún requerimiento de tecnología (web, escritorio, mobile) y sistema operativo?
+Respuesta del Product Owner:
