@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tango.PublicarPedidoDeEnvio
 {
-    public partial class Form1 : Form
+    public partial class PublicarPedidoDeEnvio : Form
     {
-        public Form1()
+        public PublicarPedidoDeEnvio()
         {
             InitializeComponent();
         }
