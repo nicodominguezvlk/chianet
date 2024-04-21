@@ -60,5 +60,6 @@ Respuesta del Product Owner:
 
 
 Pregunta:
-	¿Se prefiere que por defecto haya seleccionadas opciones en el combobox o lo dejamos vacío?
+	¿Se prefiere que por defecto haya seleccionadas opciones en el combobox o lo dejamos vacío? ¿Y las fechas, ponemos por defecto las solicitadas
+	o lo dejamos vacío?
 Respuesta del Product Owner:
