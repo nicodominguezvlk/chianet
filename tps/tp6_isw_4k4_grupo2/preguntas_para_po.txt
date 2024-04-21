@@ -53,3 +53,12 @@ Pregunta:
 Respuesta del Product Owner:
 
 
+Pregunta:
+	¿Se desea que los campos obligatorios y/o opcionales estén plasmados como tal? (por ej. asteriscos para los obligatorios y entre
+	paréntesis los opcionales?
+Respuesta del Product Owner:
+
+
+Pregunta:
+	¿Se prefiere que por defecto haya seleccionadas opciones en el combobox o lo dejamos vacío?
+Respuesta del Product Owner:

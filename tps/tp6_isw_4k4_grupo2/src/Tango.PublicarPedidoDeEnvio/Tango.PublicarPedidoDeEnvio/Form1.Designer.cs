@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblTipoDeCarga = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@
             this.grdFotos = new System.Windows.Forms.DataGridView();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdFotos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,9 +101,9 @@
             this.lblTipoDeCarga.Font = new System.Drawing.Font("Bahnschrift", 14F);
             this.lblTipoDeCarga.Location = new System.Drawing.Point(70, 115);
             this.lblTipoDeCarga.Name = "lblTipoDeCarga";
-            this.lblTipoDeCarga.Size = new System.Drawing.Size(121, 23);
+            this.lblTipoDeCarga.Size = new System.Drawing.Size(146, 23);
             this.lblTipoDeCarga.TabIndex = 2;
-            this.lblTipoDeCarga.Text = "Tipo de carga";
+            this.lblTipoDeCarga.Text = "Tipo de carga (*)";
             // 
             // lblSeleccione
             // 
@@ -137,9 +138,9 @@
             this.lblDomicilioDeRetiro.Font = new System.Drawing.Font("Bahnschrift", 14F);
             this.lblDomicilioDeRetiro.Location = new System.Drawing.Point(70, 205);
             this.lblDomicilioDeRetiro.Name = "lblDomicilioDeRetiro";
-            this.lblDomicilioDeRetiro.Size = new System.Drawing.Size(165, 23);
+            this.lblDomicilioDeRetiro.Size = new System.Drawing.Size(190, 23);
             this.lblDomicilioDeRetiro.TabIndex = 5;
-            this.lblDomicilioDeRetiro.Text = "Domicilio de retiro";
+            this.lblDomicilioDeRetiro.Text = "Domicilio de retiro (*)";
             // 
             // lblCalleRetiro
             // 
@@ -277,9 +278,9 @@
             this.lblFechaDeRetiro.Font = new System.Drawing.Font("Bahnschrift", 14F);
             this.lblFechaDeRetiro.Location = new System.Drawing.Point(70, 485);
             this.lblFechaDeRetiro.Name = "lblFechaDeRetiro";
-            this.lblFechaDeRetiro.Size = new System.Drawing.Size(138, 23);
+            this.lblFechaDeRetiro.Size = new System.Drawing.Size(163, 23);
             this.lblFechaDeRetiro.TabIndex = 16;
-            this.lblFechaDeRetiro.Text = "Fecha de retiro";
+            this.lblFechaDeRetiro.Text = "Fecha de retiro (*)";
             // 
             // lblIngreseRetiro
             // 
@@ -331,9 +332,9 @@
             this.lblFechaDeEnvio.Font = new System.Drawing.Font("Bahnschrift", 14F);
             this.lblFechaDeEnvio.Location = new System.Drawing.Point(460, 485);
             this.lblFechaDeEnvio.Name = "lblFechaDeEnvio";
-            this.lblFechaDeEnvio.Size = new System.Drawing.Size(137, 23);
+            this.lblFechaDeEnvio.Size = new System.Drawing.Size(162, 23);
             this.lblFechaDeEnvio.TabIndex = 30;
-            this.lblFechaDeEnvio.Text = "Fecha de envío";
+            this.lblFechaDeEnvio.Text = "Fecha de envío (*)";
             // 
             // txtReferenciaEnvio
             // 
@@ -435,9 +436,9 @@
             this.lblDomicilioDeEnvio.Font = new System.Drawing.Font("Bahnschrift", 14F);
             this.lblDomicilioDeEnvio.Location = new System.Drawing.Point(460, 205);
             this.lblDomicilioDeEnvio.Name = "lblDomicilioDeEnvio";
-            this.lblDomicilioDeEnvio.Size = new System.Drawing.Size(164, 23);
+            this.lblDomicilioDeEnvio.Size = new System.Drawing.Size(189, 23);
             this.lblDomicilioDeEnvio.TabIndex = 19;
-            this.lblDomicilioDeEnvio.Text = "Domicilio de envío";
+            this.lblDomicilioDeEnvio.Text = "Domicilio de envío (*)";
             // 
             // lblAdjuntarFotos
             // 
@@ -510,6 +511,7 @@
             this.btnPublicar.TabIndex = 36;
             this.btnPublicar.Text = "Publicar";
             this.btnPublicar.UseVisualStyleBackColor = false;
+            this.btnPublicar.Click += new System.EventHandler(this.btnPublicar_Click);
             // 
             // btnCancelar
             // 
@@ -523,6 +525,7 @@
             this.btnCancelar.TabIndex = 37;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // grdFotos
             // 
@@ -531,27 +534,27 @@
             this.grdFotos.AllowUserToResizeRows = false;
             this.grdFotos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.grdFotos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdFotos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdFotos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grdFotos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grdFotos.ColumnHeadersVisible = false;
             this.grdFotos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre,
             this.eliminar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdFotos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdFotos.DefaultCellStyle = dataGridViewCellStyle8;
             this.grdFotos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.grdFotos.Location = new System.Drawing.Point(773, 154);
             this.grdFotos.Name = "grdFotos";
@@ -564,8 +567,8 @@
             // nombre
             // 
             this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombre.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre.DefaultCellStyle = dataGridViewCellStyle6;
             this.nombre.FillWeight = 90F;
             this.nombre.HeaderText = "Nombre";
             this.nombre.Name = "nombre";
@@ -575,11 +578,11 @@
             // eliminar
             // 
             this.eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.eliminar.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.eliminar.DefaultCellStyle = dataGridViewCellStyle7;
             this.eliminar.FillWeight = 10F;
             this.eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eliminar.HeaderText = "Eliminar";
@@ -589,11 +592,22 @@
             this.eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.eliminar.Text = "X";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-4, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 19);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "* obligatorio";
+            // 
             // PublicarPedidoDeEnvio
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grdFotos);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnPublicar);
@@ -688,6 +702,7 @@
         private System.Windows.Forms.DataGridView grdFotos;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewButtonColumn eliminar;
+        private System.Windows.Forms.Label label1;
     }
 }
 
