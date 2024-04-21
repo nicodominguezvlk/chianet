@@ -28,15 +28,15 @@ namespace Tango.PublicarPedidoDeEnvio
         }
 
         private void btnPublicar_Click(object sender, EventArgs e)
-        { 
-            ////Verificación de campos obligatorios
-            //if (cmbTipoDeCarga.SelectedIndex == -1 || txtCalleRetiro.Text == "" || txtNumeroRetiro.Text == "" || cmbProvinciaRetiro.SelectedIndex == -1
-            //    || txtLocalidadRetiro.Text == "" || mtbRetiro.Text == "" || txtCalleEnvio.Text == "" || txtNumeroEnvio.Text == "" || cmbProvinciaEnvio.SelectedIndex == -1
-            //    || txtLocalidadEnvio.Text == "" || mtbEnvio.Text == "")
-            //{
-            //    MessageBox.Show("Debe ingresar todos los datos obligatorios (*). Por favor, revise", "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
-            //else
+        {
+            //Verificación de campos obligatorios
+            if (cmbTipoDeCarga.SelectedIndex == -1 || txtCalleRetiro.Text == "" || txtNumeroRetiro.Text == "" || cmbProvinciaRetiro.SelectedIndex == -1
+                || txtLocalidadRetiro.Text == "" || mtbRetiro.Text == "" || txtCalleEnvio.Text == "" || txtNumeroEnvio.Text == "" || cmbProvinciaEnvio.SelectedIndex == -1
+                || txtLocalidadEnvio.Text == "" || mtbEnvio.Text == "")
+            {
+                MessageBox.Show("Debe ingresar todos los datos obligatorios (*). Por favor, revise", "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
             {
                 //Verificación fecha retiro mayor a hoy
                 verificarFechaRetiro();
@@ -88,5 +88,35 @@ namespace Tango.PublicarPedidoDeEnvio
             }
         }
 
+        //////////////////////////////////////////////////////
+
+        //Función para no poder escribir letras en los de número
+        private void txtNumeroRetiro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // Evita que se ingrese el carácter no numérico
+            }
+
+            // Permite solo un punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumeroEnvio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // Evita que se ingrese el carácter no numérico
+            }
+
+            // Permite solo un punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

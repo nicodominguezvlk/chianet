@@ -183,6 +183,7 @@
             this.txtNumeroRetiro.Name = "txtNumeroRetiro";
             this.txtNumeroRetiro.Size = new System.Drawing.Size(50, 20);
             this.txtNumeroRetiro.TabIndex = 9;
+            this.txtNumeroRetiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroRetiro_KeyPress);
             // 
             // lblProvinciaRetiro
             // 
@@ -398,6 +399,7 @@
             this.txtNumeroEnvio.Name = "txtNumeroEnvio";
             this.txtNumeroEnvio.Size = new System.Drawing.Size(50, 20);
             this.txtNumeroEnvio.TabIndex = 23;
+            this.txtNumeroEnvio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroEnvio_KeyPress);
             // 
             // lblNumeroEnvio
             // 
