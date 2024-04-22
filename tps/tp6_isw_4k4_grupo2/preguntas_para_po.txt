@@ -60,6 +60,16 @@ Respuesta del Product Owner:
 
 
 Pregunta:
-	¿Se prefiere que por defecto haya seleccionadas opciones en el combobox o lo dejamos vacío? ¿Y las fechas, ponemos por defecto las solicitadas
-	o lo dejamos vacío?
+	¿Hay alguna preferencia de opción por defecto en los combobox de tipo de carga y provincias?
 Respuesta del Product Owner:
+
+
+Pregunta:
+	¿Hay alguna preferencia de fecha por defecto en los campos de fecha?
+Respuesta del Product Owner:
+
+
+Pregunta:
+	¿Hay alguna preferencia con los bordes de los botones y campos? Nos es más barato hacerlos cuadrados, por si diera lo mismo.
+Respuesta del Product Owner:
+
