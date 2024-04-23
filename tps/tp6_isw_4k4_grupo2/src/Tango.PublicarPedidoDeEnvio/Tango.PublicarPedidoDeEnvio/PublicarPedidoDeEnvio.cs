@@ -74,8 +74,10 @@ namespace Tango.PublicarPedidoDeEnvio
             string fechaEnvioStr = mtbEnvio.Text;
             string fechaRetiroStr = mtbRetiro.Text;
 
-            if (DateTime.TryParseExact(fechaEnvioStr, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime fechaEnvio) &&
-                DateTime.TryParseExact(fechaRetiroStr, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime fechaRetiro))
+            DateTime fechaEnvio;
+            DateTime fechaRetiro;
+            if (DateTime.TryParseExact(fechaEnvioStr, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaEnvio) &&
+                DateTime.TryParseExact(fechaRetiroStr, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaRetiro))
             {
                 int resultado = DateTime.Compare(fechaEnvio, fechaRetiro);
 
