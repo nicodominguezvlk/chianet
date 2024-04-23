@@ -22,6 +22,9 @@ Pregunta:
 	¿Hay algún máximo de fotos para adjuntar?
 Respuesta del Product Owner:
 
+Pregunta:
+	¿Tienen un tamaño máximo las fotos?
+Respuesta del Product Owner:
 
 Pregunta:
 	¿Cuánto puede ser la diferencia entre la fecha de envío y la fecha de retiro?
@@ -71,5 +74,9 @@ Respuesta del Product Owner:
 
 Pregunta:
 	¿Hay alguna preferencia con los bordes de los botones y campos? Nos es más barato hacerlos cuadrados, por si diera lo mismo.
+Respuesta del Product Owner:
+
+Pregunta:
+	¿Podemos usar un datepicker para la selección de la fecha de retiro y fecha de envío?
 Respuesta del Product Owner:
 
