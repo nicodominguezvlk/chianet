@@ -1,82 +1,94 @@
-Pregunta:
-	¿Hay alguna paleta de colores a utilizar?
-Respuesta del Product Owner:
-		
+BRANDING VISUAL
+	Pregunta:
+		¿Hay alguna paleta de colores a utilizar?
+	Respuesta del Product Owner:
+			
+	Pregunta:
+		¿Hay alguna fuente (estilo de letra) de preferencia?	
+	Respuesta del Product Owner:
 
-Pregunta:
-	Si no se nos va a ver el código, ¿dónde se ve plasmado el uso de las reglas de estilos?
-Respuesta del Product Owner:
+	Pregunta:
+		¿Hay un logotipo de TangoApp?
+	Respuesta del Product Owner:
 
+	Pregunta:
+		¿Hay algún requerimiento de tecnología (web, escritorio, mobile) y sistema operativo?
+	Respuesta del Product Owner:
 
-Pregunta:
-	¿Hay alguna fuente (estilo de letra) de preferencia?	
-Respuesta del Product Owner:
+	Pregunta:
+		¿Se desea que los campos obligatorios y/o opcionales estén plasmados como tal? (por ej. asteriscos para los obligatorios y entre
+		paréntesis los opcionales?
+	Respuesta del Product Owner:
 
+	Pregunta:
+		¿Hay alguna preferencia con los bordes de los botones y campos? Nos es más barato hacerlos cuadrados, por si diera lo mismo.
+	Respuesta del Product Owner:
 
-Pregunta:
-	¿Hay algún requerimiento de tecnología (web, escritorio, mobile) y sistema operativo?
-Respuesta del Product Owner:
+IMAGENES
+	Pregunta:
+		¿Hay algún máximo de fotos para adjuntar?
+	Respuesta del Product Owner:
 
+	Pregunta:
+		¿Tienen un tamaño máximo las fotos?
+	Respuesta del Product Owner:
 
-Pregunta:
-	¿Hay algún máximo de fotos para adjuntar?
-Respuesta del Product Owner:
+	Pregunta:
+		¿Hay alguna resolución o tamaño particular para las imágenes adjuntas?
+	Respuesta del Product Owner:
 
-Pregunta:
-	¿Tienen un tamaño máximo las fotos?
-Respuesta del Product Owner:
+FECHAS
+	Pregunta:
+		¿Hay algún formato particular para las fechas?
+	Respuesta del Product Owner:
 
-Pregunta:
-	¿Cuánto puede ser la diferencia entre la fecha de envío y la fecha de retiro?
-Respuesta del Product Owner:
-	Hasta una semana de diferencia.
+	Pregunta:
+		¿Hay alguna fecha máxima para solicitar el retiro? Es decir, ¿puedo solicitar el retiro de un paquete para el próximo mes?
+	Respuesta del Product Owner:
 
-Pregunta:
-	¿El usuario puede ingresar manualmente la localidad o debe seleccionarla desde una lista?
-Respuesta del Product Owner:
+	Pregunta:
+		¿Hay alguna preferencia de fecha por defecto en los campos de fecha?
+	Respuesta del Product Owner:
 
+	Pregunta:
+		¿Se puede usar un datepicker para la selección de la fecha de retiro y fecha de envío?
+	Respuesta del Product Owner:
 
-Pregunta:
+	Pregunta:
+		¿Cuánto puede ser la diferencia entre la fecha de envío y la fecha de retiro?
+	Respuesta del Product Owner:
+		Hasta una semana de diferencia.
+
+LOCALIDADES 
+	Pregunta:
+		¿El usuario puede ingresar manualmente la localidad o debe seleccionarla desde una lista?
+	Respuesta del Product Owner:
+
+	Pregunta:
+		¿Hay alguna preferencia de opción por defecto en los combobox de tipo de carga y provincias?
+	Respuesta del Product Owner:
+
+	Pregunta:
+		¿Qué provincias y localidades del interior del pais incluye?
+	Respuesta del Product Owner:
+
+CALLE, NÚMERO Y REFERENCIA
+	Pregunta:
+		¿La calle y nro de calle van en campos separados o en un solo campo?
+	Respuesta del Product Owner:
+
+	Pregunta:
+		¿Hay límite de caracteres para los campos referencia calle?
+	Respuesta del Product Owner:
+
+	Pregunta:
 	¿Hay algún número máximo de calle?
-Respuesta del Product Owner:
+	Respuesta del Product Owner:
+
+OTRAS
+	Pregunta:
+		Si no se nos va a ver el código, ¿dónde se ve plasmado el uso de las reglas de estilos?
+	Respuesta del Product Owner:
 
 
-Pregunta:
-	¿Hay algún formato particular para las fechas?
-Respuesta del Product Owner:
-
-
-Pregunta:
-	¿Hay alguna fecha máxima para solicitar el retiro? Es decir, ¿puedo solicitar el retiro de un paquete para el próximo mes?
-Respuesta del Product Owner:
-	
-
-Pregunta:
-	¿Hay alguna resolución o tamaño particular para las imágenes adjuntas?
-Respuesta del Product Owner:
-
-
-Pregunta:
-	¿Se desea que los campos obligatorios y/o opcionales estén plasmados como tal? (por ej. asteriscos para los obligatorios y entre
-	paréntesis los opcionales?
-Respuesta del Product Owner:
-
-
-Pregunta:
-	¿Hay alguna preferencia de opción por defecto en los combobox de tipo de carga y provincias?
-Respuesta del Product Owner:
-
-
-Pregunta:
-	¿Hay alguna preferencia de fecha por defecto en los campos de fecha?
-Respuesta del Product Owner:
-
-
-Pregunta:
-	¿Hay alguna preferencia con los bordes de los botones y campos? Nos es más barato hacerlos cuadrados, por si diera lo mismo.
-Respuesta del Product Owner:
-
-Pregunta:
-	¿Podemos usar un datepicker para la selección de la fecha de retiro y fecha de envío?
-Respuesta del Product Owner:
 
