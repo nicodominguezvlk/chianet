@@ -2,93 +2,119 @@ BRANDING VISUAL
 	Pregunta:
 		¿Hay alguna paleta de colores a utilizar?
 	Respuesta del Product Owner:
-			
+		https://coolors.co/011638-364156-cdcdcd-dff8eb-214e34.
+		El color de letra es a elección dentro de esa paleta.
+		
 	Pregunta:
 		¿Hay alguna fuente (estilo de letra) de preferencia?	
 	Respuesta del Product Owner:
+		Ninguna.
 
 	Pregunta:
 		¿Hay un logotipo de TangoApp?
 	Respuesta del Product Owner:
+		Lo tenemos que diseñar nosotros sí o sí.
 
 	Pregunta:
 		¿Hay algún requerimiento de tecnología (web, escritorio, mobile) y sistema operativo?
 	Respuesta del Product Owner:
+		O mobile o web responsive. No escritorio.
 
 	Pregunta:
 		¿Se desea que los campos obligatorios y/o opcionales estén plasmados como tal? (por ej. asteriscos para los obligatorios y entre
 		paréntesis los opcionales?
 	Respuesta del Product Owner:
+		Sólo el asterisco es suficiente.
 
 	Pregunta:
 		¿Hay alguna preferencia con los bordes de los botones y campos? Nos es más barato hacerlos cuadrados, por si diera lo mismo.
 	Respuesta del Product Owner:
+		Redondeados que no lleguen a ser un semi círculo.
 
 IMAGENES
 	Pregunta:
 		¿Hay algún máximo de fotos para adjuntar?
 	Respuesta del Product Owner:
+		Hasta 5 fotos.
 
 	Pregunta:
 		¿Tienen un tamaño máximo las fotos?
 	Respuesta del Product Owner:
+		5MB.
 
 	Pregunta:
-		¿Hay alguna resolución o tamaño particular para las imágenes adjuntas?
+		¿Hay alguna resolución particular para las imágenes adjuntas?
 	Respuesta del Product Owner:
+		Ninguna resolución particular.
 
 FECHAS
 	Pregunta:
 		¿Hay algún formato particular para las fechas?
 	Respuesta del Product Owner:
+		Tiene que ser SÍ O SÍ datepicker.
 
 	Pregunta:
 		¿Hay alguna fecha máxima para solicitar el retiro? Es decir, ¿puedo solicitar el retiro de un paquete para el próximo mes?
 	Respuesta del Product Owner:
+		Hasta 6 meses.
 
 	Pregunta:
 		¿Hay alguna preferencia de fecha por defecto en los campos de fecha?
 	Respuesta del Product Owner:
+		Entrega: Una semana
+		Retiro: Hoy
 
 	Pregunta:
 		¿Se puede usar un datepicker para la selección de la fecha de retiro y fecha de envío?
 	Respuesta del Product Owner:
+		Tiene que ser SÍ O SÍ datepicker.
 
 	Pregunta:
 		¿Cuánto puede ser la diferencia entre la fecha de envío y la fecha de retiro?
 	Respuesta del Product Owner:
-		Hasta una semana de diferencia.
+		Hasta una dos semanas de diferencia.
 
 LOCALIDADES 
 	Pregunta:
 		¿El usuario puede ingresar manualmente la localidad o debe seleccionarla desde una lista?
 	Respuesta del Product Owner:
+		Que se ingrese. Calle y número en el mismo textBox.
 
 	Pregunta:
 		¿Hay alguna preferencia de opción por defecto en los combobox de tipo de carga y provincias?
 	Respuesta del Product Owner:
+		Provincia: Córdoba
+		Tipo de carga: Vacío y de selección obligatoria.
 
 	Pregunta:
 		¿Qué provincias y localidades del interior del pais incluye?
 	Respuesta del Product Owner:
+		N/A
 
 CALLE, NÚMERO Y REFERENCIA
 	Pregunta:
 		¿La calle y nro de calle van en campos separados o en un solo campo?
 	Respuesta del Product Owner:
+		En el mismo campo.
 
 	Pregunta:
-		¿Hay límite de caracteres para los campos referencia calle?
+		¿Hay límite de caracteres para los campos referencia y calle?
 	Respuesta del Product Owner:
+		Máximo de 100 caracteres para la calle y de 200 para la referencia.
 
 	Pregunta:
 	¿Hay algún número máximo de calle?
 	Respuesta del Product Owner:
+		(sacar ese textBox).
 
 OTRAS
 	Pregunta:
 		Si no se nos va a ver el código, ¿dónde se ve plasmado el uso de las reglas de estilos?
 	Respuesta del Product Owner:
+		Descargar la hoja de estilos en un pdf y subirlo al repo.
 
-
+EXTRAS:
+	Tiene que funcionar la tecla TAB (si es en PC).
+	Layout: Botones cancelar y aceptar del mismo lado.
+	Usabilidad: Que sea fácil de usar, que no haga falta un instructivo. Si la profe logra ejecutar la prueba sin que nadie le indique cómo, la US es exitosa.
 
