@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { useForm } from "react-hook-form";
+import Title from './Title';
 function App() {
   const {
     register,
@@ -15,21 +16,25 @@ function App() {
 
   return (
     <form onSubmit={onSubmit}>
-      <h1>Publicar pedido de envío</h1>
+
+      <Title text="Publicar pedido de envío" />
 
       <h2>Datos de retiro</h2>
       {/* Tipo de Carga  */}
       <label htmlFor="tipoCarga">Tipo de carga*</label>
       <select
-        defaultValue="Select"
-        {...register("tipoCarga", { required: true })}
+        defaultValue=""
+        {...register("tipoCarga", {
+           required: { value: true, message: "Seleccione un tipo de carga."},
+          })}
       >
-        <option value="null"></option>
+        <option value="" disabled></option>
         <option value="documentacion">Documentación</option>
         <option value="paquete">Paquete</option>
         <option value="granos">Granos</option>
         <option value="hacienda">Hacienda</option>
       </select>
+      {errors.tipoCarga && <span>{errors.tipoCarga.message}</span>}
 
       {/* Calle y Numero */}
       <label htmlFor="calleNum">Calle y número*</label>
