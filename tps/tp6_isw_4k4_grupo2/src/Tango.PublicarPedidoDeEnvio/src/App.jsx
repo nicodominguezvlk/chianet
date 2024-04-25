@@ -15,26 +15,26 @@ function App() {
 
   return (
     <form onSubmit={onSubmit}>
-      <h1>Datos de Retiro</h1>
+      <h1>Datos de retiro</h1>
       {/* Tipo de Carga  */}
-      <label htmlFor="tipoCarga">Tipo de Carga*</label>
+      <label htmlFor="tipoCarga">Tipo de carga*</label>
       <select
         defaultValue="Select"
         {...register("tipoCarga", { required: true })}
       >
-        <option value="documentacion">Documentacion</option>
+        <option value="documentacion">Documentación</option>
         <option value="paquete">Paquete</option>
         <option value="granos">Granos</option>
         <option value="hacienda">Hacienda</option>
       </select>
 
       {/* Calle y Numero */}
-      <label htmlFor="calleNum">Calle y Numero*</label>
+      <label htmlFor="calleNum">Calle y número*</label>
       <input
         {...register("calleNum", {
-          required: { value: true, message: "Calle y numero son requeridos." },
-          minLength: { value: 4, message: "El minimo de caracteres es 4" },
-          maxLength: { value: 100, message: "El maximo de caracteres es 100" },
+          required: { value: true, message: "Calle y número son requeridos." },
+          minLength: { value: 4, message: "El mínimo de caracteres es de 4." },
+          maxLength: { value: 100, message: "El máximo de caracteres es de 100." },
         })}
         type="text"
       />
@@ -44,7 +44,7 @@ function App() {
       <label htmlFor="localidad">Localidad*</label>
       <input
         {...register("localidad", {
-          required: { value: true, message: "Localidad es requerida." },
+          required: { value: true, message: "La localidad es requerida." },
           minLength: 4,
           maxLength: 100,
         })}
@@ -56,7 +56,7 @@ function App() {
       <input
         defaultValue="Córdoba"
         {...register("provincia", {
-          required: { value: true, message: "Provincia es requerida." },
+          required: { value: true, message: "La provincia es requerida." },
           minLength: 4,
           maxLength: 100,
         })}
@@ -68,17 +68,17 @@ function App() {
       <label htmlFor="referencia">Referencia</label>
       <input
         {...register("referencia", {
-          maxLength: { value: 200, message: "El maximo de caracteres es 200" },
+          maxLength: { value: 200, message: "El máximo de caracteres es de 200." },
         })}
         type="text"
       />
       {errors.referencia && <span>{errors.referencia.message}</span>}
 
       {/* Fecha de Retiro */}
-      <label htmlFor="fechaRetiro">Fecha de Retiro*</label>
+      <label htmlFor="fechaRetiro">Fecha de retiro*</label>
       <input
         {...register("fechaRetiro", {
-          required: { value: true, message: "Fecha de retiro es requerida." },
+          required: { value: true, message: "La fecha de retiro es requerida." },
         })}
         type="date"
       />
@@ -86,12 +86,12 @@ function App() {
 
       <h1>Datos de Envio</h1>
       {/* Calle y Numero de Envio */}
-      <label htmlFor="calleNumEnvio">Calle y Numero*</label>
+      <label htmlFor="calleNumEnvio">Calle y número*</label>
       <input
         {...register("calleNumEnvio", {
-          required: { value: true, message: "Calle y numero son requeridos." },
-          minLength: { value: 4, message: "El minimo de caracteres es 4" },
-          maxLength: { value: 100, message: "El maximo de caracteres es 100" },
+          required: { value: true, message: "Calle y número son requeridos." },
+          minLength: { value: 4, message: "El mínimo de caracteres es de 4." },
+          maxLength: { value: 100, message: "El máximo de caracteres es de 100." },
         })}
         type="text"
       />
@@ -101,7 +101,7 @@ function App() {
       <label htmlFor="localidadEnvio">Localidad*</label>
       <input
         {...register("localidadEnvio", {
-          required: { value: true, message: "Localidad es requerida" },
+          required: { value: true, message: "La localidad es requerida." },
           minLength: 4,
           maxLength: 100,
         })}
@@ -114,7 +114,7 @@ function App() {
       <input
         defaultValue="Córdoba"
         {...register("provinciaEnvio", {
-          required: { value: true, message: "Provincia es requerida" },
+          required: { value: true, message: "La provincia es requerida." },
           minLength: 4,
           maxLength: 100,
         })}
@@ -126,20 +126,20 @@ function App() {
       <label htmlFor="referenciaEnvio">Referencia</label>
       <input
         {...register("referenciaEnvio", {
-          maxLength: { value: 200, message: "El maximo de caracteres es 200" },
+          maxLength: { value: 200, message: "El máximo de caracteres es de 200." },
         })}
         type="text"
       />
       {errors.referenciaEnvio && <span>{errors.referenciaEnvio.message}</span>}
 
       {/* Fecha de Envio */}
-      <label htmlFor="fechaEnvio">Fecha de Envio*</label>
-      <input {...register("fechaEnvio", { required: {value:true,message:"Fecha de Envio es requerida."} })} type="date" />
+      <label htmlFor="fechaEnvio">Fecha de envío*</label>
+      <input {...register("fechaEnvio", { required: {value:true,message:"La fecha de envío es requerida."} })} type="date" />
       {errors.fechaEnvio && <span>{errors.fechaEnvio.message}</span>}
 
       {/* Imagenes */}
       <br />
-      <lable htmlFor="imagenes">Imagenes</lable>
+      <lable htmlFor="imagenes">Imágenes</lable>
       <input {...register("imagenes")} type="file" />
 
       {/* Botones */}
