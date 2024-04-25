@@ -84,7 +84,7 @@ function App() {
       />
       {errors.fechaRetiro && <span>{errors.fechaRetiro.message}</span>}
 
-      <h1>Datos de Envio</h1>
+      <h1>Datos de envío</h1>
       {/* Calle y Numero de Envio */}
       <label htmlFor="calleNumEnvio">Calle y número*</label>
       <input

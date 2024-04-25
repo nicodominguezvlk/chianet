@@ -1,2 +1,0 @@
-Se utilizarán las reglas de estilo establecidas en:
-https://google.github.io/styleguide/csharp-style.html
