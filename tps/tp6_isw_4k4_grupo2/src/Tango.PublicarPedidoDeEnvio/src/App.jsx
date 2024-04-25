@@ -1,14 +1,24 @@
-import dayjs from "dayjs";
+import moment from "moment";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Title from './Title';
+import Title from "./Title";
 function App() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
 
-  console.log("Errores", errors);
+  // console.log(moment().format())
+  const handleFechaEnvioMax = (value) =>{
+    if(moment(value).diff(moment(watch("fechaRetiro")),"days") <= 14)
+    {
+      return true
+    } else{
+      return "Maximo 14 dias de diferencia con el retiro."
+    }
+  }
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
@@ -16,7 +26,6 @@ function App() {
 
   return (
     <form onSubmit={onSubmit}>
-
       <Title text="Publicar pedido de envío" />
 
       <h2>Datos de retiro</h2>
@@ -25,10 +34,12 @@ function App() {
       <select
         defaultValue=""
         {...register("tipoCarga", {
-           required: { value: true, message: "Seleccione un tipo de carga."},
-          })}
+          required: { value: true, message: "Seleccione un tipo de carga." },
+        })}
       >
-        <option value="" disabled></option>
+        <option value="" selected disabled>
+          Seleccionar...
+        </option>
         <option value="documentacion">Documentación</option>
         <option value="paquete">Paquete</option>
         <option value="granos">Granos</option>
@@ -42,7 +53,10 @@ function App() {
         {...register("calleNum", {
           required: { value: true, message: "Calle y número son requeridos." },
           minLength: { value: 4, message: "El mínimo de caracteres es de 4." },
-          maxLength: { value: 100, message: "El máximo de caracteres es de 100." },
+          maxLength: {
+            value: 100,
+            message: "El máximo de caracteres es de 100.",
+          },
         })}
         type="text"
       />
@@ -76,7 +90,10 @@ function App() {
       <label htmlFor="referencia">Referencia</label>
       <input
         {...register("referencia", {
-          maxLength: { value: 200, message: "El máximo de caracteres es de 200." },
+          maxLength: {
+            value: 200,
+            message: "El máximo de caracteres es de 200.",
+          },
         })}
         type="text"
       />
@@ -86,7 +103,10 @@ function App() {
       <label htmlFor="fechaRetiro">Fecha de retiro*</label>
       <input
         {...register("fechaRetiro", {
-          required: { value: true, message: "La fecha de retiro es requerida." },
+          required: {
+            value: true,
+            message: "La fecha de retiro es requerida.",
+          },
         })}
         type="date"
       />
@@ -99,7 +119,10 @@ function App() {
         {...register("calleNumEnvio", {
           required: { value: true, message: "Calle y número son requeridos." },
           minLength: { value: 4, message: "El mínimo de caracteres es de 4." },
-          maxLength: { value: 100, message: "El máximo de caracteres es de 100." },
+          maxLength: {
+            value: 100,
+            message: "El máximo de caracteres es de 100.",
+          },
         })}
         type="text"
       />
@@ -134,7 +157,10 @@ function App() {
       <label htmlFor="referenciaEnvio">Referencia</label>
       <input
         {...register("referenciaEnvio", {
-          maxLength: { value: 200, message: "El máximo de caracteres es de 200." },
+          maxLength: {
+            value: 200,
+            message: "El máximo de caracteres es de 200.",
+          },
         })}
         type="text"
       />
@@ -142,7 +168,13 @@ function App() {
 
       {/* Fecha de Envio */}
       <label htmlFor="fechaEnvio">Fecha de envío*</label>
-      <input {...register("fechaEnvio", { required: {value:true,message:"La fecha de envío es requerida."} })} type="date" />
+      <input
+        {...register("fechaEnvio", {
+          required: { value: true, message: "La fecha de envío es requerida." },
+          validate: value => handleFechaEnvioMax(value)
+        })}
+        type="date"
+      />
       {errors.fechaEnvio && <span>{errors.fechaEnvio.message}</span>}
 
       {/* Imagenes */}
@@ -153,6 +185,8 @@ function App() {
       {/* Botones */}
       <button type="submit">Enviar</button>
       <button type="reset">Limpiar</button>
+
+      <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </form>
   );
 }
