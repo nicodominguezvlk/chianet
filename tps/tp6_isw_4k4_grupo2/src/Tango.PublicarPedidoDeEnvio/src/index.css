@@ -16,3 +16,8 @@ input{
   border-radius: 8px;
   outline: none;
 }
+
+span{
+  color: tomato;
+  font-size: 13px;
+}
