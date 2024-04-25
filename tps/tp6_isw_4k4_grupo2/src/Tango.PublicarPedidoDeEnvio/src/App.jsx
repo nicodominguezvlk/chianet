@@ -15,13 +15,16 @@ function App() {
 
   return (
     <form onSubmit={onSubmit}>
-      <h1>Datos de retiro</h1>
+      <h1>Publicar pedido de envío</h1>
+
+      <h2>Datos de retiro</h2>
       {/* Tipo de Carga  */}
       <label htmlFor="tipoCarga">Tipo de carga*</label>
       <select
         defaultValue="Select"
         {...register("tipoCarga", { required: true })}
       >
+        <option value="null"></option>
         <option value="documentacion">Documentación</option>
         <option value="paquete">Paquete</option>
         <option value="granos">Granos</option>
@@ -84,7 +87,7 @@ function App() {
       />
       {errors.fechaRetiro && <span>{errors.fechaRetiro.message}</span>}
 
-      <h1>Datos de envío</h1>
+      <h2>Datos de envío</h2>
       {/* Calle y Numero de Envio */}
       <label htmlFor="calleNumEnvio">Calle y número*</label>
       <input
