@@ -1,7 +1,7 @@
 import moment from "moment";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Title from "./Title";
+import Title from "./components/Title";
 function App() {
   const {
     register,
@@ -10,15 +10,47 @@ function App() {
     formState: { errors },
   } = useForm();
 
-  // console.log(moment().format())
-  const handleFechaEnvioMax = (value) =>{
-    if(moment(value).diff(moment(watch("fechaRetiro")),"days") <= 14)
-    {
-      return true
-    } else{
-      return "Maximo 14 dias de diferencia con el retiro."
+  const handleFechaEnvio = (value) => {
+    let fechaRetiro = moment(watch("fechaRetiro")).format("l");
+    let fechaActual = moment().format("l");
+    let fechaEnvioSelec = moment(value).format("l");
+    let fechaEnvioMax = moment(fechaRetiro).add(14, "day");
+
+
+    if (
+      new Date(fechaEnvioSelec).getTime() - new Date(fechaRetiro).getTime() <
+      0
+    ) {
+      return "La fecha debe ser mayor o igual a la fecha de retiro.";
     }
-  }
+    if (
+      new Date(fechaEnvioSelec).getTime() - new Date(fechaActual).getTime() <
+      0
+    ) {
+      return "La fecha debe ser mayor o igual a la fecha actual.";
+    }
+    if (moment(fechaEnvioSelec).isAfter(fechaEnvioMax)) {
+      return "Maximo 14 dias de diferencia con el retiro.";
+    } else {
+      return true;
+    }
+  };
+
+  const handleFechaRetiro = (value) => {
+    let fechaSelec = new Date(moment(value).format("l")).getTime();
+    let fechaActual = new Date(moment().format("l")).getTime();
+    let fechaRetiroMax = new Date(moment(fechaActual).add(6,"month")).getTime();
+    // console.log("actual:",fechaActual,"selec:", fechaSelec)
+    if (fechaSelec < fechaActual) {
+      return "La fecha debe ser mayor o igual a la fecha actual.";
+    } if (fechaSelec > fechaRetiroMax)
+    {
+      return "La fecha de retiro no puede ser 6 meses despues de la actual."
+    }else{
+      return true;
+    }
+  };
+  // console.log(new Date(watch("fechaRetiro")).getTime() - new Date(moment().format()).getTime())
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
@@ -107,6 +139,7 @@ function App() {
             value: true,
             message: "La fecha de retiro es requerida.",
           },
+          validate: (value) => handleFechaRetiro(value),
         })}
         type="date"
       />
@@ -171,7 +204,7 @@ function App() {
       <input
         {...register("fechaEnvio", {
           required: { value: true, message: "La fecha de envío es requerida." },
-          validate: value => handleFechaEnvioMax(value)
+          validate: (value) => handleFechaEnvio(value),
         })}
         type="date"
       />
