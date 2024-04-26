@@ -105,18 +105,41 @@ function App() {
         type="text"
       />
       {errors.localidad && <span>{errors.localidad.message}</span>}
-      {/* Provincia */}
-      <label htmlFor="provincia">Provincia*</label>
-      <input
-        defaultValue="Córdoba"
-        {...register("provincia", {
-          required: { value: true, message: "La provincia es requerida." },
-          minLength: 4,
-          maxLength: 100,
-        })}
-        type="text"
-      />
-      {errors.provincia && <span>{errors.provincia.message}</span>}
+      {/* Provincia de retiro */}
+      <label htmlFor="provinciaRetiro">Provincia*</label>
+        <select
+          defaultValue="cordoba"
+          {...register("provinciaRetiro", {
+            required: { value: true, message: "Seleccione una provincia." },
+          })}
+        >
+          <option value="" selected disabled>Seleccionar...</option>
+          <option value="buenos-aires">Buenos Aires</option>
+          <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+          <option value="catamarca">Catamarca</option>
+          <option value="chaco">Chaco</option>
+          <option value="chubut">Chubut</option>
+          <option value="cordoba">Córdoba</option>
+          <option value="corrientes">Corrientes</option>
+          <option value="entre-rios">Entre Ríos</option>
+          <option value="formosa">Formosa</option>
+          <option value="jujuy">Jujuy</option>
+          <option value="la-pampa">La Pampa</option>
+          <option value="la-rioja">La Rioja</option>
+          <option value="mendoza">Mendoza</option>
+          <option value="misiones">Misiones</option>
+          <option value="neuquen">Neuquén</option>
+          <option value="rio-negro">Río Negro</option>
+          <option value="salta">Salta</option>
+          <option value="san-juan">San Juan</option>
+          <option value="san-luis">San Luis</option>
+          <option value="santa-cruz">Santa Cruz</option>
+          <option value="santa-fe">Santa Fe</option>
+          <option value="santiago-del-estero">Santiago del Estero</option>
+          <option value="tierra-del-fuego">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+          <option value="tucuman">Tucumán</option>
+      </select>
+      {errors.provinciaRetiro && <span>{errors.provinciaRetiro.message}</span>}
 
       {/* Referencia */}
       <label htmlFor="referencia">Referencia</label>
@@ -173,17 +196,40 @@ function App() {
       />
       {errors.localidadEnvio && <span>{errors.localidadEnvio.message}</span>}
 
-      {/* Provincia de Envio */}
+      {/* Provincia de envío */}
       <label htmlFor="provinciaEnvio">Provincia*</label>
-      <input
-        defaultValue="Córdoba"
-        {...register("provinciaEnvio", {
-          required: { value: true, message: "La provincia es requerida." },
-          minLength: 4,
-          maxLength: 100,
-        })}
-        type="text"
-      />
+        <select
+          defaultValue="cordoba"
+          {...register("provinciaEnvio", {
+            required: { value: true, message: "Seleccione una provincia." },
+          })}
+        >
+          <option value="" selected disabled>Seleccionar...</option>
+          <option value="buenos-aires">Buenos Aires</option>
+          <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+          <option value="catamarca">Catamarca</option>
+          <option value="chaco">Chaco</option>
+          <option value="chubut">Chubut</option>
+          <option value="cordoba">Córdoba</option>
+          <option value="corrientes">Corrientes</option>
+          <option value="entre-rios">Entre Ríos</option>
+          <option value="formosa">Formosa</option>
+          <option value="jujuy">Jujuy</option>
+          <option value="la-pampa">La Pampa</option>
+          <option value="la-rioja">La Rioja</option>
+          <option value="mendoza">Mendoza</option>
+          <option value="misiones">Misiones</option>
+          <option value="neuquen">Neuquén</option>
+          <option value="rio-negro">Río Negro</option>
+          <option value="salta">Salta</option>
+          <option value="san-juan">San Juan</option>
+          <option value="san-luis">San Luis</option>
+          <option value="santa-cruz">Santa Cruz</option>
+          <option value="santa-fe">Santa Fe</option>
+          <option value="santiago-del-estero">Santiago del Estero</option>
+          <option value="tierra-del-fuego">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+          <option value="tucuman">Tucumán</option>
+      </select>
       {errors.provinciaEnvio && <span>{errors.provinciaEnvio.message}</span>}
 
       {/* Referencia de Envio */}
