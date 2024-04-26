@@ -2,6 +2,9 @@ import moment from "moment";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Title from "./components/Title";
+import Subtitle from "./components/Subtitle";
+import SelectInput from "./components/SelectInput";
+
 function App() {
   const {
     register,
@@ -56,28 +59,55 @@ function App() {
     console.log(data);
   });
 
+  const tiposDeCarga = [
+    { value: 'documentacion', label: 'Documentación'},
+    { value: 'paquete', label: 'Paquete'},
+    { value: 'granos', label: 'Granos'},
+    { value: 'hacienda', label: 'Hacienda'}
+  ]
+
+  const provincias = [
+    { value: "buenos-aires", label: "Buenos Aires" },
+    { value: "caba", label: "Ciudad Autónoma de Buenos Aires" },
+    { value: "catamarca", label: "Catamarca" },
+    { value: "chaco", label: "Chaco" },
+    { value: "chubut", label: "Chubut" },
+    { value: "cordoba", label: "Córdoba"},
+    { value: "corrientes", label: "Corrientes" },
+    { value: "entre-rios", label: "Entre Ríos" },
+    { value: "formosa", label: "Formosa" },
+    { value: "jujuy", label: "Jujuy" },
+    { value: "la-pampa", label: "La Pampa" },
+    { value: "la-rioja", label: "La Rioja" },
+    { value: "mendoza", label: "Mendoza" },
+    { value: "misiones", label: "Misiones" },
+    { value: "neuquen", label: "Neuquén" },
+    { value: "rio-negro", label: "Río Negro" },
+    { value: "salta", label: "Salta" },
+    { value: "san-juan", label: "San Juan" },
+    { value: "san-luis", label: "San Luis" },
+    { value: "santa-cruz", label: "Santa Cruz" },
+    { value: "santa-fe", label: "Santa Fe" },
+    { value: "santiago-del-estero", label: "Santiago del Estero" },
+    { value: "tierra-del-fuego", label: "Tierra del Fuego, Antártida e Islas del Atlántico Sur" },
+    { value: "tucuman", label: "Tucumán" }
+  ];
+  
+
   return (
     <form onSubmit={onSubmit}>
       <Title text="Publicar pedido de envío" />
 
-      <h2>Datos de retiro</h2>
-      {/* Tipo de Carga  */}
-      <label htmlFor="tipoCarga">Tipo de carga*</label>
-      <select
+      <Subtitle text="Datos de retiro" />
+
+      <SelectInput
+        name="tipoCarga"
+        label="Tipo de carga*"
+        register={register}
+        errors={errors}
+        options={tiposDeCarga}
         defaultValue=""
-        {...register("tipoCarga", {
-          required: { value: true, message: "Seleccione un tipo de carga." },
-        })}
-      >
-        <option value="" selected disabled>
-          Seleccionar...
-        </option>
-        <option value="documentacion">Documentación</option>
-        <option value="paquete">Paquete</option>
-        <option value="granos">Granos</option>
-        <option value="hacienda">Hacienda</option>
-      </select>
-      {errors.tipoCarga && <span>{errors.tipoCarga.message}</span>}
+      />
 
       {/* Calle y Numero */}
       <label htmlFor="calleNum">Calle y número*</label>
@@ -105,41 +135,15 @@ function App() {
         type="text"
       />
       {errors.localidad && <span>{errors.localidad.message}</span>}
-      {/* Provincia de retiro */}
-      <label htmlFor="provinciaRetiro">Provincia*</label>
-        <select
-          defaultValue="cordoba"
-          {...register("provinciaRetiro", {
-            required: { value: true, message: "Seleccione una provincia." },
-          })}
-        >
-          <option value="" selected disabled>Seleccionar...</option>
-          <option value="buenos-aires">Buenos Aires</option>
-          <option value="caba">Ciudad Autónoma de Buenos Aires</option>
-          <option value="catamarca">Catamarca</option>
-          <option value="chaco">Chaco</option>
-          <option value="chubut">Chubut</option>
-          <option value="cordoba">Córdoba</option>
-          <option value="corrientes">Corrientes</option>
-          <option value="entre-rios">Entre Ríos</option>
-          <option value="formosa">Formosa</option>
-          <option value="jujuy">Jujuy</option>
-          <option value="la-pampa">La Pampa</option>
-          <option value="la-rioja">La Rioja</option>
-          <option value="mendoza">Mendoza</option>
-          <option value="misiones">Misiones</option>
-          <option value="neuquen">Neuquén</option>
-          <option value="rio-negro">Río Negro</option>
-          <option value="salta">Salta</option>
-          <option value="san-juan">San Juan</option>
-          <option value="san-luis">San Luis</option>
-          <option value="santa-cruz">Santa Cruz</option>
-          <option value="santa-fe">Santa Fe</option>
-          <option value="santiago-del-estero">Santiago del Estero</option>
-          <option value="tierra-del-fuego">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
-          <option value="tucuman">Tucumán</option>
-      </select>
-      {errors.provinciaRetiro && <span>{errors.provinciaRetiro.message}</span>}
+      
+      <SelectInput
+        name="provinciaRetiro"
+        label="Provincia*"
+        register={register}
+        errors={errors}
+        options={provincias}
+        defaultValue="cordoba"
+      />
 
       {/* Referencia */}
       <label htmlFor="referencia">Referencia</label>
@@ -168,7 +172,8 @@ function App() {
       />
       {errors.fechaRetiro && <span>{errors.fechaRetiro.message}</span>}
 
-      <h2>Datos de envío</h2>
+      <Subtitle text="Datos de envío" />
+      
       {/* Calle y Numero de Envio */}
       <label htmlFor="calleNumEnvio">Calle y número*</label>
       <input
@@ -196,41 +201,14 @@ function App() {
       />
       {errors.localidadEnvio && <span>{errors.localidadEnvio.message}</span>}
 
-      {/* Provincia de envío */}
-      <label htmlFor="provinciaEnvio">Provincia*</label>
-        <select
-          defaultValue="cordoba"
-          {...register("provinciaEnvio", {
-            required: { value: true, message: "Seleccione una provincia." },
-          })}
-        >
-          <option value="" selected disabled>Seleccionar...</option>
-          <option value="buenos-aires">Buenos Aires</option>
-          <option value="caba">Ciudad Autónoma de Buenos Aires</option>
-          <option value="catamarca">Catamarca</option>
-          <option value="chaco">Chaco</option>
-          <option value="chubut">Chubut</option>
-          <option value="cordoba">Córdoba</option>
-          <option value="corrientes">Corrientes</option>
-          <option value="entre-rios">Entre Ríos</option>
-          <option value="formosa">Formosa</option>
-          <option value="jujuy">Jujuy</option>
-          <option value="la-pampa">La Pampa</option>
-          <option value="la-rioja">La Rioja</option>
-          <option value="mendoza">Mendoza</option>
-          <option value="misiones">Misiones</option>
-          <option value="neuquen">Neuquén</option>
-          <option value="rio-negro">Río Negro</option>
-          <option value="salta">Salta</option>
-          <option value="san-juan">San Juan</option>
-          <option value="san-luis">San Luis</option>
-          <option value="santa-cruz">Santa Cruz</option>
-          <option value="santa-fe">Santa Fe</option>
-          <option value="santiago-del-estero">Santiago del Estero</option>
-          <option value="tierra-del-fuego">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
-          <option value="tucuman">Tucumán</option>
-      </select>
-      {errors.provinciaEnvio && <span>{errors.provinciaEnvio.message}</span>}
+      <SelectInput
+        name="provinciaEnvio"
+        label="Provincia*"
+        register={register}
+        errors={errors}
+        options={provincias}
+        defaultValue="cordoba"
+      />
 
       {/* Referencia de Envio */}
       <label htmlFor="referenciaEnvio">Referencia</label>
