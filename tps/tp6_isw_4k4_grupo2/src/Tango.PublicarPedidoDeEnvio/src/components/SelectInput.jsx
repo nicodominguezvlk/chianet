@@ -7,7 +7,7 @@ function SelectInput({ name, label, register, errors, options, defaultValue }) {
       <select
         defaultValue={defaultValue}
         {...register(name, {
-          required: { value: true, message: `Seleccione su ${label.toLowerCase()}.` },
+          required: { value: true, message: `Campo obligatorio.` },
         })}
       >
         <option value="" disabled>

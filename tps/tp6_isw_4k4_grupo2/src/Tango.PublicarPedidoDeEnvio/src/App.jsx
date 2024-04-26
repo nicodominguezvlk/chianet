@@ -1,9 +1,11 @@
-import moment from "moment";
+import moment from "./momentConfig.jsx";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Title from "./components/Title";
 import Subtitle from "./components/Subtitle";
 import SelectInput from "./components/SelectInput";
+import TextInput from "./components/TextInput";
+import DateInput from "./components/DateInput";
 
 function App() {
   const {
@@ -33,7 +35,7 @@ function App() {
       return "La fecha debe ser mayor o igual a la fecha actual.";
     }
     if (moment(fechaEnvioSelec).isAfter(fechaEnvioMax)) {
-      return "Maximo 14 dias de diferencia con el retiro.";
+      return "No puede haber más de 14 días de diferencia entre el retiro y el envío.";
     } else {
       return true;
     }
@@ -48,7 +50,7 @@ function App() {
       return "La fecha debe ser mayor o igual a la fecha actual.";
     } if (fechaSelec > fechaRetiroMax)
     {
-      return "La fecha de retiro no puede ser 6 meses despues de la actual."
+      return "No pueden faltar más de 6 meses para el retiro."
     }else{
       return true;
     }
@@ -98,6 +100,7 @@ function App() {
     <form onSubmit={onSubmit}>
       <Title text="Publicar pedido de envío" />
 
+      {/* Retiro */}
       <Subtitle text="Datos de retiro" />
 
       <SelectInput
@@ -109,32 +112,25 @@ function App() {
         defaultValue=""
       />
 
-      {/* Calle y Numero */}
-      <label htmlFor="calleNum">Calle y número*</label>
-      <input
-        {...register("calleNum", {
-          required: { value: true, message: "Calle y número son requeridos." },
-          minLength: { value: 4, message: "El mínimo de caracteres es de 4." },
-          maxLength: {
-            value: 100,
-            message: "El máximo de caracteres es de 100.",
-          },
-        })}
-        type="text"
+      <TextInput
+        name="calleNumRetiro"
+        label="Calle y número*"
+        register={register}
+        errors={errors}
+        maxLength={100}
+        minLength={4}
+        required={true}
       />
-      {errors.calleNum && <span>{errors.calleNum.message}</span>}
 
-      {/* Localidad */}
-      <label htmlFor="localidad">Localidad*</label>
-      <input
-        {...register("localidad", {
-          required: { value: true, message: "La localidad es requerida." },
-          minLength: 4,
-          maxLength: 100,
-        })}
-        type="text"
+      <TextInput
+        name="localidadRetiro"
+        label="Localidad*"
+        register={register}
+        errors={errors}
+        maxLength={100}
+        minLength={4}
+        required={true}
       />
-      {errors.localidad && <span>{errors.localidad.message}</span>}
       
       <SelectInput
         name="provinciaRetiro"
@@ -145,61 +141,47 @@ function App() {
         defaultValue="cordoba"
       />
 
-      {/* Referencia */}
-      <label htmlFor="referencia">Referencia</label>
-      <input
-        {...register("referencia", {
-          maxLength: {
-            value: 200,
-            message: "El máximo de caracteres es de 200.",
-          },
-        })}
-        type="text"
+      <TextInput
+        name="referenciaRetiro"
+        label="Referencia"
+        register={register}
+        errors={errors}
+        maxLength={200}
+        minLength={0}
+        required={false}
       />
-      {errors.referencia && <span>{errors.referencia.message}</span>}
 
-      {/* Fecha de Retiro */}
-      <label htmlFor="fechaRetiro">Fecha de retiro*</label>
-      <input
-        {...register("fechaRetiro", {
-          required: {
-            value: true,
-            message: "La fecha de retiro es requerida.",
-          },
-          validate: (value) => handleFechaRetiro(value),
-        })}
-        type="date"
+      <DateInput
+        name="fechaRetiro"
+        label="Fecha de retiro*"
+        register={register}
+        errors={errors}
+        validate={handleFechaRetiro}
       />
-      {errors.fechaRetiro && <span>{errors.fechaRetiro.message}</span>}
 
+
+      {/* Envío */}
       <Subtitle text="Datos de envío" />
       
-      {/* Calle y Numero de Envio */}
-      <label htmlFor="calleNumEnvio">Calle y número*</label>
-      <input
-        {...register("calleNumEnvio", {
-          required: { value: true, message: "Calle y número son requeridos." },
-          minLength: { value: 4, message: "El mínimo de caracteres es de 4." },
-          maxLength: {
-            value: 100,
-            message: "El máximo de caracteres es de 100.",
-          },
-        })}
-        type="text"
+      <TextInput
+        name="calleNumEnvio"
+        label="Calle y número*"
+        register={register}
+        errors={errors}
+        maxLength={100}
+        minLength={4}
+        required={true}
       />
-      {errors.calleNumEnvio && <span>{errors.calleNumEnvio.message}</span>}
 
-      {/* Localidad de Envio */}
-      <label htmlFor="localidadEnvio">Localidad*</label>
-      <input
-        {...register("localidadEnvio", {
-          required: { value: true, message: "La localidad es requerida." },
-          minLength: 4,
-          maxLength: 100,
-        })}
-        type="text"
+      <TextInput
+        name="localidadEnvio"
+        label="Localidad*"
+        register={register}
+        errors={errors}
+        maxLength={100}
+        minLength={4}
+        required={true}
       />
-      {errors.localidadEnvio && <span>{errors.localidadEnvio.message}</span>}
 
       <SelectInput
         name="provinciaEnvio"
@@ -210,29 +192,23 @@ function App() {
         defaultValue="cordoba"
       />
 
-      {/* Referencia de Envio */}
-      <label htmlFor="referenciaEnvio">Referencia</label>
-      <input
-        {...register("referenciaEnvio", {
-          maxLength: {
-            value: 200,
-            message: "El máximo de caracteres es de 200.",
-          },
-        })}
-        type="text"
+      <TextInput
+        name="referenciaEnvio"
+        label="Referencia"
+        register={register}
+        errors={errors}
+        maxLength={200}
+        minLength={0}
+        required={false}
       />
-      {errors.referenciaEnvio && <span>{errors.referenciaEnvio.message}</span>}
 
-      {/* Fecha de Envio */}
-      <label htmlFor="fechaEnvio">Fecha de envío*</label>
-      <input
-        {...register("fechaEnvio", {
-          required: { value: true, message: "La fecha de envío es requerida." },
-          validate: (value) => handleFechaEnvio(value),
-        })}
-        type="date"
+      <DateInput
+        name="fechaEnvio"
+        label="Fecha de envío*"
+        register={register}
+        errors={errors}
+        validate={handleFechaEnvio}
       />
-      {errors.fechaEnvio && <span>{errors.fechaEnvio.message}</span>}
 
       {/* Imagenes */}
       <br />
