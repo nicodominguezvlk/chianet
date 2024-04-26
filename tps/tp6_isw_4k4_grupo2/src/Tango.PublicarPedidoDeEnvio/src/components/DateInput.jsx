@@ -32,7 +32,7 @@ function DateInput({ name, label, register, errors, validate }) {
         })}
         type="date"
       />
-      {errors[name] && <span>{errors[name].message}</span>}
+      {errors[name] && <span><br />{errors[name].message}</span>}
     </div>
   );
 }

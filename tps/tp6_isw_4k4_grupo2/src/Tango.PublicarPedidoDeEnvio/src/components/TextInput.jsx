@@ -32,7 +32,7 @@ function TextInput({ name, label, register, errors, maxLength, minLength, requir
         })}
         type="text"
       />
-      {errors[name] && <span>{errors[name].message}</span>}
+      {errors[name] && <span><br />{errors[name].message}</span>}
     </div>
   );
 }

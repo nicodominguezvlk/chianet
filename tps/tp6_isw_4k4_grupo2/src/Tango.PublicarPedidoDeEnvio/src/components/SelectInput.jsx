@@ -38,7 +38,7 @@ function SelectInput({ name, label, register, errors, options, defaultValue }) {
           </option>
         ))}
       </select>
-      {errors[name] && <span>{errors[name].message}</span>}
+      {errors[name] && <span><br />{errors[name].message}</span>}
     </div>
   );
 }
