@@ -8,7 +8,8 @@ function Title({text}) {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    borderRadius: '20px'
+    borderRadius: '20px',
+    marginBottom: '30px'
   };  
 
   const titleStyle = {

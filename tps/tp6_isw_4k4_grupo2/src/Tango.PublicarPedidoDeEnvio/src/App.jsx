@@ -97,118 +97,127 @@ function App() {
   
 
   return (
-    <form onSubmit={onSubmit}>
+    <form id="main" onSubmit={onSubmit}>
       <Title text="Publicar pedido de envío" />
 
-      {/* Retiro */}
-      <Subtitle text="Datos de retiro" />
+      <div id="blockTipoCarga">
+        <SelectInput
+              name="tipoCarga"
+              label="Tipo de carga*"
+              register={register}
+              errors={errors}
+              options={tiposDeCarga}
+              defaultValue=""
+            />
+        </div>
 
-      <SelectInput
-        name="tipoCarga"
-        label="Tipo de carga*"
-        register={register}
-        errors={errors}
-        options={tiposDeCarga}
-        defaultValue=""
-      />
+      <div id="contenedor">
 
-      <TextInput
-        name="calleNumRetiro"
-        label="Calle y número*"
-        register={register}
-        errors={errors}
-        maxLength={100}
-        minLength={4}
-        required={true}
-      />
+        {/* Retiro */}
+        <div id="retiro">
+          <Subtitle text="Datos de retiro" />
 
-      <TextInput
-        name="localidadRetiro"
-        label="Localidad*"
-        register={register}
-        errors={errors}
-        maxLength={100}
-        minLength={4}
-        required={true}
-      />
-      
-      <SelectInput
-        name="provinciaRetiro"
-        label="Provincia*"
-        register={register}
-        errors={errors}
-        options={provincias}
-        defaultValue="cordoba"
-      />
+          <TextInput
+            name="calleNumRetiro"
+            label="Calle y número*"
+            register={register}
+            errors={errors}
+            maxLength={100}
+            minLength={4}
+            required={true}
+          />
 
-      <TextInput
-        name="referenciaRetiro"
-        label="Referencia"
-        register={register}
-        errors={errors}
-        maxLength={200}
-        minLength={0}
-        required={false}
-      />
+          <TextInput
+            name="localidadRetiro"
+            label="Localidad*"
+            register={register}
+            errors={errors}
+            maxLength={100}
+            minLength={4}
+            required={true}
+          />
+          
+          <SelectInput
+            name="provinciaRetiro"
+            label="Provincia*"
+            register={register}
+            errors={errors}
+            options={provincias}
+            defaultValue="cordoba"
+          />
 
-      <DateInput
-        name="fechaRetiro"
-        label="Fecha de retiro*"
-        register={register}
-        errors={errors}
-        validate={handleFechaRetiro}
-      />
+          <TextInput
+            name="referenciaRetiro"
+            label="Referencia"
+            register={register}
+            errors={errors}
+            maxLength={200}
+            minLength={0}
+            required={false}
+          />
 
+          <DateInput
+            name="fechaRetiro"
+            label="Fecha de retiro*"
+            register={register}
+            errors={errors}
+            validate={handleFechaRetiro}
+          />
+        </div>
 
-      {/* Envío */}
-      <Subtitle text="Datos de envío" />
-      
-      <TextInput
-        name="calleNumEnvio"
-        label="Calle y número*"
-        register={register}
-        errors={errors}
-        maxLength={100}
-        minLength={4}
-        required={true}
-      />
+        {/* Envío */}
+        <div id="envio">
+          <Subtitle text="Datos de envío" />
+          
+          <TextInput
+            name="calleNumEnvio"
+            label="Calle y número*"
+            register={register}
+            errors={errors}
+            maxLength={100}
+            minLength={4}
+            required={true}
+          />
 
-      <TextInput
-        name="localidadEnvio"
-        label="Localidad*"
-        register={register}
-        errors={errors}
-        maxLength={100}
-        minLength={4}
-        required={true}
-      />
+          <TextInput
+            name="localidadEnvio"
+            label="Localidad*"
+            register={register}
+            errors={errors}
+            maxLength={100}
+            minLength={4}
+            required={true}
+          />
 
-      <SelectInput
-        name="provinciaEnvio"
-        label="Provincia*"
-        register={register}
-        errors={errors}
-        options={provincias}
-        defaultValue="cordoba"
-      />
+          <SelectInput
+            name="provinciaEnvio"
+            label="Provincia*"
+            register={register}
+            errors={errors}
+            options={provincias}
+            defaultValue="cordoba"
+          />
 
-      <TextInput
-        name="referenciaEnvio"
-        label="Referencia"
-        register={register}
-        errors={errors}
-        maxLength={200}
-        minLength={0}
-        required={false}
-      />
+          <TextInput
+            name="referenciaEnvio"
+            label="Referencia"
+            register={register}
+            errors={errors}
+            maxLength={200}
+            minLength={0}
+            required={false}
+          />
 
-      <DateInput
-        name="fechaEnvio"
-        label="Fecha de envío*"
-        register={register}
-        errors={errors}
-        validate={handleFechaEnvio}
-      />
+          <DateInput
+            name="fechaEnvio"
+            label="Fecha de envío*"
+            register={register}
+            errors={errors}
+            validate={handleFechaEnvio}
+          />
+        </div>
+
+      </div>
 
       {/* Imagenes */}
       <br />

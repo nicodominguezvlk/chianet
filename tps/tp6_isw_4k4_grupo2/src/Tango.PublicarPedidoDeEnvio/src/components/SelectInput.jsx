@@ -1,10 +1,29 @@
 import React from 'react';
 
 function SelectInput({ name, label, register, errors, options, defaultValue }) {
+
+  const blockStyle = {
+    width: '100%',
+    marginTop: '12px'
+  }
+
+  const labelStyle = {
+
+  }
+
+  const selectStyle = {
+    width: '95%',
+    padding: '8px',
+    border: 'none',
+    borderRadius: '8px',
+    marginTop: '2px'
+  }
+
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div style={blockStyle}>
+      <label style={labelStyle} htmlFor={name}>{label}</label>
       <select
+        style={selectStyle}
         defaultValue={defaultValue}
         {...register(name, {
           required: { value: true, message: `Campo obligatorio.` },

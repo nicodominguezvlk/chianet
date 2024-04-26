@@ -1,35 +1,42 @@
 body{
   background: #011638;
   color: #DFF8EB;
-  display: flex;
-  justify-content: center;
   font-family: 'Outfit', sans-serif;
-}
-
-label{
-  display: block;
-  margin-top: 12px;
-}
-
-input{
-  width: 100%;
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  margin-top: 2px;
-}
-
-select{
-  width: 100%;
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
 }
 
 span{
   color: tomato;
   font-size: 13px;
+}
+
+#main{
+  width: 90vw;
+}
+
+#contenedor{
+  display: flex;
+  flex-direction: column;
+}
+
+#retiro, #envio{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: left;
+}
+
+@media screen and (min-width: 768px){
+  #contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  #blockTipoCarga{
+    width: 50%;
+  }
 }

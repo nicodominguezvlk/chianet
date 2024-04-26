@@ -5,13 +5,13 @@ function Subtitle({text}) {
   const blockStyle = {
     display: 'flex',
     justifyContent: 'left',
-    width: '100%',
-    paddingTop: '24px'
+    width: '100%'
   };  
 
   const subtitleStyle = {
     color: '#DFF8EB',
-    margin: '0px'
+    marginBottom: '0px',
+    marginTop: '28px'
   }
 
   return(
