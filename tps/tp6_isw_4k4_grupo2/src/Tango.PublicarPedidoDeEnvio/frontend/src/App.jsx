@@ -6,6 +6,10 @@ import Subtitle from "./components/Subtitle";
 import SelectInput from "./components/SelectInput";
 import TextInput from "./components/TextInput";
 import DateInput from "./components/DateInput";
+import {EmailTemplate} from "./components/Mail-template";
+import io from "socket.io-client";
+
+const socket = io("/");
 
 function App() {
   const {
@@ -59,6 +63,8 @@ function App() {
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    socket.emit("client:form", EmailTemplate(data));
+    socket.on("server:message", (message) => {alert(message)})
   });
 
   const tiposDeCarga = [
