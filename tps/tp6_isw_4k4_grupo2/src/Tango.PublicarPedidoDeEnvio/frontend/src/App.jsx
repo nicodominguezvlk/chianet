@@ -17,7 +17,19 @@ function App() {
     handleSubmit,
     watch,
     formState: { errors },
+    setValue
   } = useForm();
+
+  // Estado local para las fechas de retiro y envío
+  const [fechaRetiro, setFechaRetiro] = useState(moment().format("YYYY-MM-DD"));
+  const [fechaEnvio, setFechaEnvio] = useState(moment().add(7, "days").format("YYYY-MM-DD"));
+
+  // Establecer valores por defecto al montar el componente
+  useEffect(() => {
+    setValue("fechaRetiro", fechaRetiro);
+    setValue("fechaEnvio", fechaEnvio);
+  }, [fechaRetiro, fechaEnvio, setValue]);
+
 
   const handleFechaEnvio = (value) => {
     let fechaRetiro = moment(watch("fechaRetiro")).format("l");
