@@ -6,7 +6,7 @@ import Subtitle from "./components/Subtitle";
 import SelectInput from "./components/SelectInput";
 import TextInput from "./components/TextInput";
 import DateInput from "./components/DateInput";
-import {EmailTemplate} from "./components/Mail-template";
+import { EmailTemplate } from "./components/Mail-template";
 import io from "socket.io-client";
 
 const socket = io("/");
@@ -17,19 +17,20 @@ function App() {
     handleSubmit,
     watch,
     formState: { errors },
-    setValue
+    setValue,
   } = useForm();
 
   // Estado local para las fechas de retiro y envío
   const [fechaRetiro, setFechaRetiro] = useState(moment().format("YYYY-MM-DD"));
-  const [fechaEnvio, setFechaEnvio] = useState(moment().add(7, "days").format("YYYY-MM-DD"));
+  const [fechaEnvio, setFechaEnvio] = useState(
+    moment().add(7, "days").format("YYYY-MM-DD")
+  );
 
   // Establecer valores por defecto al montar el componente
   useEffect(() => {
     setValue("fechaRetiro", fechaRetiro);
     setValue("fechaEnvio", fechaEnvio);
   }, [fechaRetiro, fechaEnvio, setValue]);
-
 
   const handleFechaEnvio = (value) => {
     let fechaRetiro = moment(watch("fechaRetiro")).format("l");
@@ -76,7 +77,9 @@ function App() {
   const onSubmit = handleSubmit((data) => {
     console.log(data);
     socket.emit("client:form", EmailTemplate(data));
-    socket.on("server:message", (message) => {alert(message)})
+    socket.on("server:message", (message) => {
+      alert(message);
+    });
   });
 
   const tiposDeCarga = [
@@ -244,30 +247,37 @@ function App() {
 
       {/* Imagenes */}
       <br />
-      <lable htmlFor="imagenes">Imágenes</lable>
-      <input
-        type="file"
-        multiple
-        accept="image/*"
-        {...register("imagenes", {
-          validate: (e) => {
-            if ((e.length <= 5 ) || (e.length) === undefined) {
-              for(let i = 0; i < e.length; i++ ){
-                if(((e[i]).size) > 5000000){
-                  return `${e[i].name} muy grande. Max 5mb por imagen.`
+      <div id="img-container">
+        <lable htmlFor="imagenes">Imágenes</lable>
+        <input
+          id="img-input"
+          type="file"
+          multiple
+          accept="image/*"
+          {...register("imagenes", {
+            validate: (e) => {
+              if (e.length <= 5 || e.length === undefined) {
+                for (let i = 0; i < e.length; i++) {
+                  if (e[i].size > 5000000) {
+                    return `${e[i].name} muy grande. Max 5mb por imagen.`;
+                  }
                 }
+                return true;
+              } else {
+                return "Maximo 5 imagenes";
               }
-              return true
-            }else{
-              return "Maximo 5 imagenes"
-            }
-          },
-        })}
-      />
-      {errors.imagenes && <span>{errors.imagenes.message || errors.imagenes}</span>}
+            },
+          })}
+        />
+        {errors.imagenes && (
+          <span>{errors.imagenes.message || errors.imagenes}</span>
+        )}
+      </div>
       {/* Botones */}
-      <button type="submit">Enviar</button>
-      <button type="reset">Limpiar</button>
+      <div id="button-container">
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpiar</button>
+      </div>
 
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </form>
