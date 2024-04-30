@@ -51,7 +51,7 @@ app.post("/upload", upload.array("imagenes", 5), (req, res) => {
   // });
 
   // Responder al cliente
-  res.json( "Pedido enviado correctamente!" );
+  res.json( "¡Pedido enviado correctamente!" );
 });
 
 // Iniciar el servidor

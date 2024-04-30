@@ -18,7 +18,7 @@ function Reset({ text }) {
 
     return (
         <button
-            type="reset"
+            type="button"
             style={buttonStyle}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

@@ -102,6 +102,8 @@ function App() {
     });
     const result = await response.json();
     alert(JSON.stringify(result));
+
+    window.location.reload();
   };
 
   const tiposDeCarga = [
