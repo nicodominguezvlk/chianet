@@ -281,7 +281,6 @@ function App() {
         </div>
       </footer>
 
-      <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </form>
   );
 }
