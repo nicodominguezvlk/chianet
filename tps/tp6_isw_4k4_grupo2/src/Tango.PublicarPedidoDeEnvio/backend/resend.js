@@ -1,17 +1,38 @@
-import { Resend } from 'resend';
+const { Resend } = require("resend");
+const resend = new Resend("re_i8J3gmcr_MTFW9DvQB2sosQxqTFJ4ypTX");
+const fs = require("fs");
 
-const resend = new Resend('re_5QxKGSCS_6Ham6ehaTQwbPXSAa9ftwgBT');
+async function SendMail(body, files) {
+  // Obtener la lista de nombres de archivos de las imágenes
+  const imageFileNames = files.map((file) => file.originalname);
 
-export async function SendEmail(form, [correos]) {
-  try {
-    const data  = await resend.emails.send({
-      from: 'TangoApp <onboarding@resend.dev>',
-      to: correos,
-      subject: 'Pedido de Envio - Tango App',
-      html: `${form}`,
-    });
-    console.log({ data });
-  } catch (error) {
-    console.log(error);l
+  const attachments = await Promise.all(
+    files.map(async (file) => ({
+      filename: file.originalname,
+      content: await fs.promises.readFile(file.path),
+    }))
+  );
+
+  const { data, error } = await resend.emails.send({
+    from: "TangoApp <onboarding@resend.dev>",
+    to: ["alexisjcarnero@gmail.com"],
+    subject: "TangoApp",
+    html: `
+      <p>Datos del formulario:</p>
+      <pre>${JSON.stringify(body, null, 2)}</pre>
+      <p>Archivos adjuntos:</p>
+      <ul>
+        ${imageFileNames.map((fileName) => `<li>${fileName}</li>`).join("")}
+      </ul>
+    `,
+    attachments,
+  });
+
+  if (error) {
+    return console.error({ error });
   }
-};
+
+  console.log({ data });
+}
+
+module.exports = { SendMail };

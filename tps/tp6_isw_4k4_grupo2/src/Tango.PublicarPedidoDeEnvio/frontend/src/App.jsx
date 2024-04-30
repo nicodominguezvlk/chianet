@@ -6,10 +6,6 @@ import Subtitle from "./components/Subtitle";
 import SelectInput from "./components/SelectInput";
 import TextInput from "./components/TextInput";
 import DateInput from "./components/DateInput";
-import { EmailTemplate } from "./components/Mail-template";
-import io from "socket.io-client";
-
-const socket = io("/");
 
 function App() {
   const {
@@ -74,13 +70,36 @@ function App() {
     }
   };
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    socket.emit("client:form", EmailTemplate(data));
-    socket.on("server:message", (message) => {
-      alert(message);
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+
+    // Añadir los archivos de imagen al FormData
+    Array.from(data.imagenes).forEach(file => {
+      formData.append('imagenes', file);
     });
-  });
+
+    // Añadir campos al FormData
+    formData.append('tipoCarga', data.tipoCarga);
+    formData.append('calleNumRetiro', data.calleNumRetiro);
+    formData.append('localidadRetiro', data.localidadRetiro);
+    formData.append('provinciaRetiro', data.provinciaRetiro);
+    formData.append('referenciaRetiro', data.referenciaRetiro);
+    formData.append('fechaRetiro', data.fechaRetiro);
+    formData.append('calleNumEnvio', data.calleNumEnvio);
+    formData.append('localidadEnvio', data.localidadEnvio);
+    formData.append('provinciaEnvio', data.provinciaEnvio);
+    formData.append('referenciaEnvio', data.referenciaEnvio);
+    formData.append('fechaEnvio', data.fechaEnvio);
+
+    // Opción de configuración de la petición
+    //El localhost:3000 es porque el backend esta ahi.
+    const response = await fetch('http://localhost:3000/upload', {
+      method: 'POST',
+      body: formData
+    });
+    const result = await response.json();
+    alert(JSON.stringify(result));
+  };
 
   const tiposDeCarga = [
     { value: "documentacion", label: "Documentación" },
@@ -124,7 +143,7 @@ function App() {
       id="main"
       method="post"
       encType="multipart/form-data"
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <Title text="Publicar pedido de envío" />
 
