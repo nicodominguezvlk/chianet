@@ -9,7 +9,8 @@ function Title({text}) {
     justifyContent: 'center',
     width: '100%',
     borderRadius: '20px',
-    marginBottom: '30px'
+    marginBottom: '30px',
+    marginTop: '20px'
   };  
 
   const titleStyle = {

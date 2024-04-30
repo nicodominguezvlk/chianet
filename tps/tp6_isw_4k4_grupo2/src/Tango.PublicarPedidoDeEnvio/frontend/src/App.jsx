@@ -281,6 +281,11 @@ function App() {
         </div>
       </footer>
 
+      <div id="logoBar">
+        <img src="../public/tango_v1.png" width="200px" />
+        <h2>TangoApp</h2>
+      </div>
+
     </form>
   );
 }
