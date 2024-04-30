@@ -103,6 +103,7 @@ function App() {
     const result = await response.json();
     alert(JSON.stringify(result));
 
+    // Recarga la página al enviar
     window.location.reload();
   };
 

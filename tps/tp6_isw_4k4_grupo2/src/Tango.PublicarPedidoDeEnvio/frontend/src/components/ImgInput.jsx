@@ -21,7 +21,7 @@ function ImgInput({ register, errors }) {
 
     return (
         <div style={blockStyle}>
-            <label htmlFor="imagenes">Imágenes</label>
+            <label htmlFor="imagenes">Imágenes (seleccione hasta 5 simultáneamente)</label>
                 <input
                 style={inputStyle}
                 type="file"

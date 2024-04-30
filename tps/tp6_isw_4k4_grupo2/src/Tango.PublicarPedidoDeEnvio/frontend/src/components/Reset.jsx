@@ -4,6 +4,10 @@ function Reset({ text }) {
 
     const [isHovered, setIsHovered] = useState(false);
 
+    const handleReset = () => {
+        window.location.reload();
+    };
+
     const buttonStyle = {
         backgroundColor: isHovered ? "#2F394B" : "#364156",
         padding: "12px",
@@ -22,6 +26,7 @@ function Reset({ text }) {
             style={buttonStyle}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={handleReset}
         >
             { text }
         </button>
