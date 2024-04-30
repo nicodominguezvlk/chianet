@@ -277,7 +277,7 @@ function App() {
       <footer>
         <div id="contenedorButtons">
           <Submit text="Enviar" />
-          <Reset text="Limpiar" />
+          <Reset text="Cancelar" />
         </div>
       </footer>
 
