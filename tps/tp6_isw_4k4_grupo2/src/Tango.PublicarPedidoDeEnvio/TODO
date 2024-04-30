@@ -1,6 +1,6 @@
 + Formatear bloque Imágenes
 + Formatear botones
-- Limpiar campos cuando se envía el formulario
++ Limpiar campos cuando se envía el formulario
 + Borrar el contenido JSON que se muestra en el frontend
 + Bloquear carga de archivos que no sean imágenes
 + Ubicar logos

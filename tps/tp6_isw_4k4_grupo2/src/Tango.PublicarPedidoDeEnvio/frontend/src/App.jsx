@@ -74,37 +74,43 @@ function App() {
   };
 
   const onSubmit = async (data) => {
-    const formData = new FormData();
 
-    // Añadir los archivos de imagen al FormData
-    Array.from(data.imagenes).forEach(file => {
-      formData.append('imagenes', file);
-    });
+    // Preguntar
+    const confirmSubmit = window.confirm('¿Está seguro de que desea publicar el pedido de envío?');
+    if (confirmSubmit) {
+        
+      const formData = new FormData();
 
-    // Añadir campos al FormData
-    formData.append('tipoCarga', data.tipoCarga);
-    formData.append('calleNumRetiro', data.calleNumRetiro);
-    formData.append('localidadRetiro', data.localidadRetiro);
-    formData.append('provinciaRetiro', data.provinciaRetiro);
-    formData.append('referenciaRetiro', data.referenciaRetiro);
-    formData.append('fechaRetiro', data.fechaRetiro);
-    formData.append('calleNumEnvio', data.calleNumEnvio);
-    formData.append('localidadEnvio', data.localidadEnvio);
-    formData.append('provinciaEnvio', data.provinciaEnvio);
-    formData.append('referenciaEnvio', data.referenciaEnvio);
-    formData.append('fechaEnvio', data.fechaEnvio);
+      // Añadir los archivos de imagen al FormData
+      Array.from(data.imagenes).forEach(file => {
+        formData.append('imagenes', file);
+      });
 
-    // Opción de configuración de la petición
-    // El localhost:3000 es porque el backend esta ahi.
-    const response = await fetch('http://localhost:3000/upload', {
-      method: 'POST',
-      body: formData
-    });
-    const result = await response.json();
-    alert(JSON.stringify(result));
+      // Añadir campos al FormData
+      formData.append('tipoCarga', data.tipoCarga);
+      formData.append('calleNumRetiro', data.calleNumRetiro);
+      formData.append('localidadRetiro', data.localidadRetiro);
+      formData.append('provinciaRetiro', data.provinciaRetiro);
+      formData.append('referenciaRetiro', data.referenciaRetiro);
+      formData.append('fechaRetiro', data.fechaRetiro);
+      formData.append('calleNumEnvio', data.calleNumEnvio);
+      formData.append('localidadEnvio', data.localidadEnvio);
+      formData.append('provinciaEnvio', data.provinciaEnvio);
+      formData.append('referenciaEnvio', data.referenciaEnvio);
+      formData.append('fechaEnvio', data.fechaEnvio);
 
-    // Recarga la página al enviar
-    window.location.reload();
+      // Opción de configuración de la petición
+      // El localhost:3000 es porque el backend esta ahi.
+      const response = await fetch('http://localhost:3000/upload', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+      alert(JSON.stringify(result));
+
+      // Recarga la página al enviar
+      window.location.reload();
+    }
   };
 
   const tiposDeCarga = [
@@ -184,7 +190,7 @@ function App() {
             label="Localidad*"
             register={register}
             errors={errors}
-            maxLength={100}
+            maxLength={24}
             minLength={0}
             required={true}
           />
@@ -236,7 +242,7 @@ function App() {
             label="Localidad*"
             register={register}
             errors={errors}
-            maxLength={100}
+            maxLength={24}
             minLength={0}
             required={true}
           />

@@ -5,7 +5,12 @@ function Reset({ text }) {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleReset = () => {
-        window.location.reload();
+        // Preguntar
+        const confirmReset = window.confirm('¿Está seguro de que desea cancelar? Se perderá toda la información ingresada.');
+        if (confirmReset) {
+            // Refrescar
+            window.location.reload();
+        }
     };
 
     const buttonStyle = {
