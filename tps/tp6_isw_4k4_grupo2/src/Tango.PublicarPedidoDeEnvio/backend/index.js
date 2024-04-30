@@ -38,6 +38,7 @@ app.post("/upload", upload.array("imagenes", 5), (req, res) => {
     fechaEnvio,
   } = req.body;
 
+
   // Recibir archivos
   const files = req.files;
   console.log(files);
