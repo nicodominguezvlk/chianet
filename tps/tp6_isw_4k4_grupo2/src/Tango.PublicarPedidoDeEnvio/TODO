@@ -1,0 +1,9 @@
++ Formatear bloque Imágenes
++ Formatear botones
+- Limpiar campos cuando se envía el formulario
+- Borrar el contenido JSON que se muestra en el frontend
+- Bloquear carga de archivos que no sean imágenes
+- Controlar criterios de aceptación y respuestas de PO
+- Controlar reglas de estilo
+- Dev testing
+- Pruebas de usuario

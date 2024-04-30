@@ -6,6 +6,9 @@ import Subtitle from "./components/Subtitle";
 import SelectInput from "./components/SelectInput";
 import TextInput from "./components/TextInput";
 import DateInput from "./components/DateInput";
+import ImgInput from "./components/ImgInput";
+import Submit from "./components/Submit.jsx";
+import Reset from "./components/Reset.jsx";
 
 function App() {
   const {
@@ -92,7 +95,7 @@ function App() {
     formData.append('fechaEnvio', data.fechaEnvio);
 
     // Opción de configuración de la petición
-    //El localhost:3000 es porque el backend esta ahi.
+    // El localhost:3000 es porque el backend esta ahi.
     const response = await fetch('http://localhost:3000/upload', {
       method: 'POST',
       body: formData
@@ -169,7 +172,7 @@ function App() {
             register={register}
             errors={errors}
             maxLength={100}
-            minLength={4}
+            minLength={0}
             required={true}
           />
 
@@ -179,7 +182,7 @@ function App() {
             register={register}
             errors={errors}
             maxLength={100}
-            minLength={4}
+            minLength={0}
             required={true}
           />
 
@@ -221,7 +224,7 @@ function App() {
             register={register}
             errors={errors}
             maxLength={100}
-            minLength={4}
+            minLength={0}
             required={true}
           />
 
@@ -231,7 +234,7 @@ function App() {
             register={register}
             errors={errors}
             maxLength={100}
-            minLength={4}
+            minLength={0}
             required={true}
           />
 
@@ -264,39 +267,19 @@ function App() {
         </div>
       </div>
 
-      {/* Imagenes */}
-      <br />
-      <div id="img-container">
-        <lable htmlFor="imagenes">Imágenes</lable>
-        <input
-          id="img-input"
-          type="file"
-          multiple
-          accept="image/*"
-          {...register("imagenes", {
-            validate: (e) => {
-              if (e.length <= 5 || e.length === undefined) {
-                for (let i = 0; i < e.length; i++) {
-                  if (e[i].size > 5000000) {
-                    return `${e[i].name} muy grande. Max 5mb por imagen.`;
-                  }
-                }
-                return true;
-              } else {
-                return "Maximo 5 imagenes";
-              }
-            },
-          })}
-        />
-        {errors.imagenes && (
-          <span>{errors.imagenes.message || errors.imagenes}</span>
-        )}
-      </div>
+      {/* Imágenes */}
+      <ImgInput
+        register={register}
+        errors={errors}
+      />
+
       {/* Botones */}
-      <div id="button-container">
-        <button type="submit">Enviar</button>
-        <button type="reset">Limpiar</button>
-      </div>
+      <footer>
+        <div id="contenedorButtons">
+          <Submit text="Enviar" />
+          <Reset text="Limpiar" />
+        </div>
+      </footer>
 
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </form>
