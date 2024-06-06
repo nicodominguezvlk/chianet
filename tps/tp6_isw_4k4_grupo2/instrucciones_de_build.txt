@@ -1,0 +1,9 @@
+Para levantar el sitio web:
+1. Descargar e instalar Node JS.
+2. Crear una carpeta vacía en la carpeta raíz del proyecto llamada "uploads".
+3. Abrir una terminal y ejecutar el comando npm i nodemon parados en la carpeta raíz del proyecto (Tango.PublicarPedidoDeEnvio).
+4. Moverse a la carpeta frontend y ejecutar el comando npm install. Cuando esté listo, ejecutar npm run dev.
+5. Abrir OTRA terminal sin cerrar la anterior y ejecutar los mismos dos comandos, pero parados en la carpeta backend.
+6. Configurar Google Chrome para que arranque con las siguientes opciones:
+ --user-data-dir="C://chrome-dev-disabled-security" --disable-web-security --disable-site-isolation-trials
+7. Abrir el sitio web en Chrome en la url "localhost:5173".
